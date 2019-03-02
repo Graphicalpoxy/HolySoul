@@ -118,6 +118,11 @@ public class PlayerController2 : MonoBehaviour
         {
             SceneManager.LoadScene("Battlefield");
         }
+        if (other.gameObject.tag == "Homemover")
+        {
+            SceneManager.LoadScene("Home");
+        }
+
     }
 
 

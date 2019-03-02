@@ -8,6 +8,7 @@ public class UIcontroller : MonoBehaviour
     public Slider slider;
     public Text Level;
     private GameObject player;
+    public Slider EXPSlider;
     
 
     // Start is called before the first frame update
@@ -22,5 +23,6 @@ public class UIcontroller : MonoBehaviour
     {
         Level.GetComponent<Text>().text = "LEVEL" + player.GetComponent<PlayerStatus>().LEVEL;
         slider.GetComponent<Slider>().value = player.GetComponent<PlayerStatus>().HP ;
+        EXPSlider.GetComponent<Slider>().value = player.GetComponent<PlayerStatus>().EXP;
     }
 }

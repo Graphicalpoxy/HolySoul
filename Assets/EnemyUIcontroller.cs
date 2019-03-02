@@ -7,6 +7,7 @@ public class EnemyUIcontroller : MonoBehaviour
 {
     public Slider slider;
     private GameObject enemy;
+    public Canvas enemycanvas;
 
 
     // Start is called before the first frame update
@@ -21,5 +22,6 @@ public class EnemyUIcontroller : MonoBehaviour
     {
 
         slider.GetComponent<Slider>().value = enemy.GetComponent<EnemyStatus>().enemyHP;
+        enemycanvas.transform.rotation = Camera.main.transform.rotation;
     }
 }

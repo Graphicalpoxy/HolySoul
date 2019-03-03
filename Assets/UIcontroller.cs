@@ -9,13 +9,15 @@ public class UIcontroller : MonoBehaviour
     public Text Level;
     private GameObject player;
     public Slider EXPSlider;
+    public Text StageLevel;
     
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
-        
+        StageLevel.GetComponent<Text>().text = "StageLEVEL:" + PlayerPrefs.GetInt("StageLevel", 1);
+
     }
 
     // Update is called once per frame

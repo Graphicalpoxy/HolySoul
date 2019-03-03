@@ -31,6 +31,7 @@ public class EnemyStatus : MonoBehaviour
             {
                 enemyHP = enemyHP - 3;
                 Debug.Log("ダメージ");
+                GetComponent<AudioSource>().Play();
             }
         }
     }

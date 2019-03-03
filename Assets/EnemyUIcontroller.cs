@@ -13,7 +13,7 @@ public class EnemyUIcontroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemy = GameObject.Find("Enemy");
+        
 
     }
 
@@ -21,7 +21,7 @@ public class EnemyUIcontroller : MonoBehaviour
     void Update()
     {
 
-        slider.GetComponent<Slider>().value = enemy.GetComponent<EnemyStatus>().enemyHP;
+        slider.GetComponent<Slider>().value = GetComponent<EnemyStatus>().enemyHP;
         enemycanvas.transform.rotation = Camera.main.transform.rotation;
     }
 }

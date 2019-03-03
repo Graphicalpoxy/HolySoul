@@ -12,7 +12,7 @@ public class StageController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        stagelevel = 1;
+        stagelevel = PlayerPrefs.GetInt("StageLevel", 1);
         change = false;
         stagelevelupper = true;
     }
@@ -44,6 +44,7 @@ public class StageController : MonoBehaviour
     void StageLevelUP()
     {
         stagelevel = stagelevel + 1;
+        PlayerPrefs.SetInt("StageLevel", stagelevel);
     }
 
 

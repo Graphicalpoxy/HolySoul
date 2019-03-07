@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.CrossPlatformInput;
 
 
 public class PlayerController2 : MonoBehaviour
@@ -19,6 +20,8 @@ public class PlayerController2 : MonoBehaviour
     private PlayerStatus playerstatus;
     private bool alive;
 
+    public bool guardtrigger;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -26,12 +29,15 @@ public class PlayerController2 : MonoBehaviour
         axe.GetComponent<BoxCollider>().enabled = false;
         playerstatus = GetComponent<PlayerStatus>();
         alive = true;
+        guardtrigger = false;
     }
 
     void Update()
     {
-        inputHorizontal = Input.GetAxisRaw("Horizontal");
-        inputVertical = Input.GetAxisRaw("Vertical");
+
+
+        inputHorizontal = CrossPlatformInputManager.GetAxisRaw("Horizontal");
+        inputVertical = CrossPlatformInputManager.GetAxisRaw("Vertical");
     }
 
     void FixedUpdate()
@@ -65,12 +71,12 @@ public class PlayerController2 : MonoBehaviour
                 animator.SetBool("Run", false);
             }
 
-            if (Input.GetMouseButtonDown(0))
-            {
-                Attack();
-            }
+           // if (Input.GetMouseButtonDown(0))
+            //{
+            //    Attack();
+            //}
 
-            if (Input.GetMouseButton(1))
+            if (guardtrigger == true)
             {
                 guard.SetActive(true);
             }
@@ -84,7 +90,7 @@ public class PlayerController2 : MonoBehaviour
 
     }
 
-    void Attack()
+    public void Attack()
     {
         animator.SetBool("Attack", true);
        
@@ -110,6 +116,16 @@ public class PlayerController2 : MonoBehaviour
     {
         SceneManager.LoadScene("Home");
     }
+
+    public void GuardButtomDown()
+    {
+        guardtrigger = true;
+    }
+    public void GuardButtomUp()
+    {
+        guardtrigger = false;
+    }
+
 
 
     void OnTriggerEnter(Collider other)
